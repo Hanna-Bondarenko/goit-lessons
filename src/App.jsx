@@ -1,7 +1,9 @@
 import "./App.css";
-import Profile from "./Components/Profile";
+import { FaApple } from "react-icons/fa";
+import Profile from "./components/profile/Profile";
+import Section from "./components/section/Section";
+import Button from "./components/button/Button";
 import profilesData from "../profiles.json/";
-import Section from "./components/Section";
 
 function App() {
   console.log("profilesData:", profilesData);
@@ -9,6 +11,13 @@ function App() {
   return (
     <div>
       <h1>Hello world</h1>
+      <div>
+        <FaApple size={48} color="red" />
+      </div>
+
+      <Button>Click me</Button>
+      <Button success>Click me</Button>
+      <Button outline>Click me</Button>
 
       <Section title="Test">
         <p>

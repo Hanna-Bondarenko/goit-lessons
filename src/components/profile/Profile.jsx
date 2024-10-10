@@ -1,16 +1,10 @@
-// {
-//     "name": "Іван Петров",
-//     "phone": "+380501234567",
-//     "email": "ivan.petrov@example.com",
-//     "status": "online",
-//     "avatar": "https://example.com/avatars/ivan.jpg",
-//     "hasPhisicalAddress": false
-//   }
+import styles from "./Profile.module.css";
 
 const Profile = (props) => {
   const { name, phone, email, status, hasPhisicalAddress = false } = props;
   return (
     <div>
+      <h2 className={styles.title}>My profile</h2>
       <h3>Name: {name}</h3>
       <p>Phone: {phone}</p>
       <p>Email: {email}</p>
