@@ -1,31 +1,37 @@
+import { useState } from "react";
 import "./App.css";
-import { FaApple } from "react-icons/fa";
 import Profile from "./components/profile/Profile";
 import Section from "./components/section/Section";
-import Button from "./components/button/Button";
 import profilesData from "../profiles.json/";
+import Pub from "./components/Pub";
 
 function App() {
-  console.log("profilesData:", profilesData);
+  const [count, setCount] = useState(0);
+  const onSayMyName = (profileName) => {
+    console.log("profileName:", profileName);
+  };
+
+  const onIncrement = () => {
+    setCount(count + 1);
+  };
 
   return (
     <div>
       <h1>Hello world</h1>
-      <div>
-        <FaApple size={48} color="red" />
-      </div>
-
-      <Button>Click me</Button>
-      <Button success>Click me</Button>
-      <Button outline>Click me</Button>
-
-      <Section title="Test">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-          unde.
-        </p>
-        <button type="button">Click to increase your money</button>
+      <Section title="My first Pub">
+        <Pub />
       </Section>
+      <Section title="Test state">
+        <h3>Count: {count}</h3>
+        {count > 5 && (
+          <div>
+            Congratulations!!! You$apos got a 30% OFF discount promo -{" "}
+            <b>#1234ba</b>
+          </div>
+        )}
+        <button onClick={onIncrement}>Increment count</button>
+      </Section>
+
       <Section title="User list">
         {profilesData.map((profileItem) => {
           return (
@@ -36,6 +42,7 @@ function App() {
               email={profileItem.email}
               status={profileItem.status}
               hasPhisicalAddress={profileItem.hasPhisicalAddress}
+              onSayMyName={onSayMyName}
             />
           );
         })}
